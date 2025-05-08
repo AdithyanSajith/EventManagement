@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: Ad@161104
+  host: localhost
+  port: 5432
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: event_manager_development
+
+test:
+  <<: *default
+  database: event_manager_test
+
+production:
+  <<: *default
+  database: event_manager_production
+  username: postgres
+  password: Ad@161104
