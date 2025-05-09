@@ -1,16 +1,24 @@
 Rails.application.routes.draw do
+  get "events/index"
+  get "events/show"
+  get "events/new"
+  get "events/create"
+  # Set the homepage to show events
+  root "events#index"
+
+  # Main resources for CRUD
   resources :participants
   resources :hosts
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :events
+  resources :venues
+  resources :genres
+  resources :registrations
+  resources :payments
+  resources :tickets
+  resources :reviews
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
-
-  # Render dynamic PWA files from app/views/pwa/*
-  get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
-  get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-
-  # Defines the root path route ("/")
-  # root "posts#index"
+  # System health and PWA support (optional)
+  # get "up" => "rails/health#show", as: :rails_health_check
+  # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
+  # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 end
