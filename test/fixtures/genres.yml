@@ -2,12 +2,8 @@
 
 one:
   name: MyString
-  genre_type: 1
   description: MyText
-  event_count: 1
 
 two:
   name: MyString
-  genre_type: 1
   description: MyText
-  event_count: 1

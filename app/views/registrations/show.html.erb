@@ -1,0 +1,11 @@
+<h1>Registration Details</h1>
+
+<p>
+  <strong>Participant:</strong> <%= @registration.participant.name %><br>
+  <strong>Event:</strong> <%= @registration.event.title %><br>
+  <strong>Status:</strong> <%= @registration.status %><br>
+  <strong>Source:</strong> <%= @registration.source %>
+</p>
+
+<%= link_to 'Edit', edit_registration_path(@registration) %> |
+<%= link_to 'Back', registrations_path %>

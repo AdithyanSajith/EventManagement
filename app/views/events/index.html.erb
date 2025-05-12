@@ -1,6 +1,8 @@
 <h1>All Events</h1>
 
-<%= link_to "Create New Event", new_event_path, class: "btn btn-primary" %>
+<% if current_host %>
+  <%= link_to "Create New Event", new_event_path, class: "btn btn-primary" %>
+<% end %>
 
 <ul>
   <% @events.each do |event| %>
@@ -9,10 +11,12 @@
       Start: <%= event.starttime.strftime("%d %b %Y %I:%M %p") %> |
       End: <%= event.endtime.strftime("%d %b %Y %I:%M %p") %><br>
 
-      <!-- Action links -->
-      <%= link_to "Show", event_path(event) %> |
-      <%= link_to "Edit", edit_event_path(event) %> |
-      <%= link_to "Delete", event_path(event), method: :delete, data: { confirm: "Are you sure?" } %>
+      <%= link_to "Show", event_path(event) %>
+      
+      <% if current_host == event.host %>
+        | <%= link_to "Edit", edit_event_path(event) %>
+        | <%= link_to "Delete", event_path(event), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
     </li>
     <hr>
   <% end %>

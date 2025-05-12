@@ -5,5 +5,6 @@ class Event < ApplicationRecord
 
   has_many :registrations, dependent: :destroy
   has_many :participants, through: :registrations
+  has_many :payments, through: :registrations
   has_many :reviews, as: :reviewable, dependent: :destroy
 end

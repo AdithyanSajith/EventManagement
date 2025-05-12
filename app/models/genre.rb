@@ -9,6 +9,4 @@ class Genre < ApplicationRecord
     sports: 4
   }
 
-  validates :name, presence: true
-  validates :genre_type, presence: true
 end

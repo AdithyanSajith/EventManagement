@@ -1,0 +1,17 @@
+<p>
+  <strong>Registration:</strong>
+  <%= @ticket.registration_id %>
+</p>
+
+<p>
+  <strong>Ticket Code:</strong>
+  <%= @ticket.ticket_code %>
+</p>
+
+<p>
+  <strong>Issued At:</strong>
+  <%= @ticket.issued_at %>
+</p>
+
+<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
+<%= link_to 'Back', tickets_path %>

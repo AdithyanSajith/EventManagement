@@ -1,0 +1,31 @@
+<h1>Registrations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Participant</th>
+      <th>Event</th>
+      <th>Status</th>
+      <th>Source</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @registrations.each do |registration| %>
+      <tr>
+        <td><%= registration.participant.name %></td>
+        <td><%= registration.event.title %></td>
+        <td><%= registration.status %></td>
+        <td><%= registration.source %></td>
+        <td>
+          <%= link_to 'Show', registration %>
+          <%= link_to 'Edit', edit_registration_path(registration) %>
+          <%= link_to 'Delete', registration, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Registration', new_registration_path %>

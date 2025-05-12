@@ -1,0 +1,27 @@
+<table>
+  <thead>
+    <tr>
+      <th>Registration</th>
+      <th>Amount</th>
+      <th>Status</th>
+      <th>Method</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @payments.each do |payment| %>
+      <tr>
+        <td><%= payment.registration_id %></td>
+        <td><%= payment.amount %></td>
+        <td><%= payment.status %></td>
+        <td><%= payment.method %></td>
+        <td>
+          <%= link_to 'Edit', edit_payment_path(payment) %> |
+          <%= link_to 'Show', payment %> |
+          <%= link_to 'Delete', payment, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

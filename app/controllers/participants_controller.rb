@@ -22,6 +22,8 @@ class ParticipantsController < ApplicationController
   # POST /participants or /participants.json
   def create
     @participant = Participant.new(participant_params)
+    @registrations = current_participant.registrations.includes(:event, :payment)
+
 
     respond_to do |format|
       if @participant.save
